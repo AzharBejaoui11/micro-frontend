@@ -6,18 +6,24 @@ import {HttpClient} from "@angular/common/http";
 })
 export class EducationService {
 
-  baseUrl = 'http://localhost:8080/api/v1/';
+  baseUrl = 'http://localhost:8070/api/v1';
+  Url = 'http://localhost:8090/api/v1';
 
   constructor(private http: HttpClient) {
   }
 
-
   addStudent(data: any) {
-    return this.http.post(`${this.baseUrl}/students`, data)
+    return this.http.post(`${this.Url}/students`, data)
+  }
+  getStudent(){
+    return this.http.get(`${this.Url}/students`);
   }
 
   addSchool(data: any) {
     return this.http.post(`${this.baseUrl}/schools`, data)
+  }
+  getSchool(){
+    return this.http.get(`${this.baseUrl}/schools`);
   }
 
 }
